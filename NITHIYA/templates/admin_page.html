@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN VIEW</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+  <header>
+     <main>
+     <div class="video-background">
+    <video autoplay loop muted playsinline>
+      <source src="/video/admin_bg.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  </main>
+     <div class="logo">
+  <img src="/static/image/logo.png"><strong>இந்திய தொழில்நுட்ப நிறுவனம் மதராஸ் <br>भारतीय प्रौद्योगिकी संस्थान मद्रास<br>Indian Institute of Technology Madras <br>
+</strong><img src="/static/image/left_logo.png">
+</div>
+  </header>
+     <div class="navbar">
+        <nav>
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/submit">SUBMIT PAPER</a></li>
+                <li><a href="/view">VIEW SUBMISSION</a></li>
+                <li><a href="/admin-page">ADMIN VIEW</a></li>
+                <li><a href="/about">ABOUT US</a></li>
+            </ul>
+        </nav>
+    </div>
+    <h2>ALL SUBMISSIONS</h2>
+    <div class="home">
+      <div class="step-card" onclick="window.location.href='/admin-login'">
+    <div class="step-icon">💳</div>
+    <div class="step-title">ADMIN LOGIN</div>
+    <div class="step-desc">
+      <strong>Click here to see all submissions</strong><br>Only accessed by admin <br>
+      <a href="/admin-login" class="step-link">click here</a>
+    </div>
+    </div>
+    </div>
+     <script>
+document.querySelectorAll('.step-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.backgroundColor = "#eef7ff";
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.backgroundColor = "#fff";
+    });
+});
+</script>
+    <footer>
+        <a href="https://www.agacollege.in/">CLICK HERE <br>TO KNOW MORE ABOUT ALAGAPPA GOVT.ARTS COLLEGE</a>
+         <br><br><br><br>THANK YOU <br> @2025 alagappa govt. arts college,kkdi <br><br>
+    </footer>
+
+</body>
+</html>

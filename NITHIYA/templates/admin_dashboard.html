@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+    <h2>Submissions</h2>
+    <form method="GET">
+        <input type="text" name="name" placeholder="Search by name">
+        <select name="status">
+            <option value="">All</option>
+            <option>Pending</option>
+            <option>Accepted</option>
+            <option>Rejected</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+
+    {% if submissions %}
+    <table>
+        <tr><th>Name</th><th>Email</th><th>Title</th><th>Status</th><th>Submitted On</th><th>Action</th></tr>
+        {% for s in submissions %}
+        <tr>
+            <td>{{ s.student_name }}</td>
+            <td>{{ s.email }}</td>
+            <td>{{ s.title }}</td>
+            <td>{{s.submitted_on}}</td>
+            <td>{{ s.status }}</td>
+            <td>
+                <a href="/update-status/{{ s.id }}/Accepted">✅</a> |
+                <a href="/update-status/{{ s.id }}/Rejected">❌</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No matching submissions.</p>
+    {% endif %}
+
+    <a href="/logout">Logout</a>
+</body>
+</html>

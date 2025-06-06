@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY SUBMISSION</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+    <main>
+     <div class="video-background">
+    <video autoplay loop muted playsinline>
+      <source src="/static/video/first_video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  </main>
+     <header> <div class="logo">
+  <img src="/static/image/logo.png"><strong>இந்திய தொழில்நுட்ப நிறுவனம் மதராஸ் <br>भारतीय प्रौद्योगिकी संस्थान मद्रास<br>Indian Institute of Technology Madras <br>
+</strong><img src="/static/image/left_logo.png">
+</div></header>
+     <div class="navbar">
+        <nav>
+            <ul>
+                 <li><a href="/">HOME</a></li>
+                <li><a href="/submit">SUBMIT PAPER</a></li>
+                <li><a href="/view">VIEW SUBMISSION</a></li>
+                <li><a href="/admin-page">ADMIN VIEW</a></li>
+                <li><a href="/about">ABOUT US</a></li>
+            </ul>
+        </nav>
+    </div>
+    <h2>Check Submission</h2>
+    <form method="POST">
+        <input name="email" type="email" placeholder="Enter your email" required>
+        <button type="submit">View</button>
+    </form>
+
+    {% if submissions %}
+        <table>
+            <tr>
+                <th>Name</th><th>ID</th><th>Email</th><th>Title</th><th>Status</th>
+            </tr>
+            {% for sub in submissions %}
+            <tr>
+                <td>{{ sub.student_name }}</td>
+                <td>{{ sub.student_id }}</td>
+                <td>{{ sub.email }}</td>
+                <td>{{ sub.title }}</td>
+                <td><strong>{{ sub.status }}</strong></td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% elif submissions is not none %}
+        <p>No submissions found for that email.</p>
+    {% endif %}
+</body>
+</html>

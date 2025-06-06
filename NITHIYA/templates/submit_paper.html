@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAPER PRESENTATION SUBMISSION PORTAL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+    <main>
+     <div class="video-background">
+    <video autoplay loop muted playsinline>
+      <source src="/static/video/submit_video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  </main>
+     <header> <div class="logo">
+  <img src="/static/image/logo.png"><strong>இந்திய தொழில்நுட்ப நிறுவனம் மதராஸ் <br>भारतीय प्रौद्योगिकी संस्थान मद्रास<br>Indian Institute of Technology Madras <br>
+</strong><img src="/static/image/left_logo.png">
+</div></header>
+    <div class="navbar">
+        <nav>
+            <ul>
+                 <li><a href="/">HOME</a></li>
+                <li><a href="/submit">SUBMIT PAPER</a></li>
+                <li><a href="/view">VIEW SUBMISSION</a></li>
+                <li><a href="/admin-page">ADMIN VIEW</a></li>
+                <li><a href="/about">ABOUT US</a></li>
+            </ul>
+        </nav>
+    </div>
+    <center>
+    <h2>PAPER PRESENTATION SUBMISSION PORTAL</h2>
+    <h2>SUBMIT YOUR PAPER PRESENTATION DOCUMENT</h2>
+    <div class="submit_form">
+    <form action="/submit" method="POST" enctype="multipart/form-data" style="font-family: Arial, sans-serif; max-width: 600px;">
+    <label for="name">Student Name:</label><br>
+    <input type="text" id="name" name="student_name" required><br><br>
+
+    <label for="student_id">Student ID:</label><br>
+    <input type="text" id="student_id" name="student_id" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="college">College Name:</label><br>
+    <input type="text" id="college" name="college" required><br><br>
+
+    <label for="stream">Stream of Study:</label><br>
+    <select name="stream" id="stream" style="font-size: large;" required>
+        <option value="" disabled selected>Select your stream</option>
+        <option value="Engineering">Engineering</option>
+        <option value="Medical">Medical</option>
+        <option value="Science">Science</option>
+        <option value="Arts">Arts</option>
+    </select><br><br>
+
+    <label for="course">Course:</label><br>
+    <input type="text" id="course" name="course"><br><br>
+
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="abstract">Abstract:</label><br>
+    <textarea id="abstract" name="abstract" rows="5" cols="50" required></textarea><br><br>
+
+    <label for="doc_link">Document Link (optional):</label><br>
+    <input type="url" id="doc_link" name="doc_link"><br><br>
+
+    <label for="doc_upload">Or Upload Document:</label><br>
+    <input type="file" id="doc_upload" name="doc_upload" accept=".pdf,.doc,.docx"><br><br>
+
+    <button type="submit" style="padding: 10px 20px; font-size: medium;">Submit</button>
+</form>
+</div>
+</center>
+    <center><footer><br>THANK YOU <br> @2025 alagappa govt. arts college,kkdi </footer></center>
+</body>
+</html>
