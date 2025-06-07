@@ -60,17 +60,36 @@ def view_submission():
         submissions = cursor.fetchall()
     return render_template('view_submission.html', submissions=submissions)
 
+import mysql.connector
+from flask import request, session, redirect, url_for, render_template, flash
+
 @app.route('/admin-login', methods=['GET', 'POST'])
 def admin_login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        if username == "admin" and password == "admin2005":
+
+        # Connect to MySQL database
+        conn = mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='Digidara1000',
+            database='paperdb'
+        )
+        cursor = conn.cursor()
+        query = "SELECT * FROM admins WHERE username = %s AND password = %s"
+        cursor.execute(query, (username, password))
+        admin = cursor.fetchone()
+        conn.close()
+
+        if admin:
             session['admin'] = True
             return redirect(url_for('admin_view'))
         else:
             flash("Invalid login", "danger")
+
     return render_template('admin.html')
+
 
 @app.route('/admin-view')
 def admin_view():
