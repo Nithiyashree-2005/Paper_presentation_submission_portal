@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN VIEW</title>
      <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+     <style>
+body {
+    background: linear-gradient(-45deg, #e2e3eb, #399fff, #5a93fd, #1c05e6);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+</style>
 </head>
 <body>
   <header>
